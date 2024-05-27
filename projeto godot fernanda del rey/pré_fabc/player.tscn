@@ -1,0 +1,77 @@
+[gd_scene load_steps=12 format=3 uid="uid://bc2fmeyg2un7m"]
+
+[ext_resource type="Texture2D" uid="uid://cygv6va07a827" path="res://assets/player_idle-01.png" id="1_db76s"]
+[ext_resource type="Texture2D" uid="uid://pprymfll6xm8" path="res://assets/player_idle-02.png" id="2_6k7v1"]
+[ext_resource type="Texture2D" uid="uid://2hytw5mf332" path="res://assets/player_idle-03.png" id="3_oqe0g"]
+[ext_resource type="Texture2D" uid="uid://ders0i18yuvii" path="res://assets/player_move-01.png" id="4_5xf75"]
+[ext_resource type="Texture2D" uid="uid://ddhvkm02crdyg" path="res://assets/player_move-02.png" id="5_yivl5"]
+[ext_resource type="Texture2D" uid="uid://suwb8m78h7ty" path="res://assets/player_down-01.png" id="6_msbe3"]
+[ext_resource type="Texture2D" uid="uid://h272s26e08hc" path="res://assets/player_down-02.png" id="7_rud4w"]
+[ext_resource type="Texture2D" uid="uid://bv22jkmqp6855" path="res://assets/player_up-01.png" id="8_k7axf"]
+[ext_resource type="Texture2D" uid="uid://dil2qiwuadvwv" path="res://assets/player_up-02.png" id="9_1gwgm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n65b4"]
+radius = 58.1808
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dklry"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_db76s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_6k7v1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_oqe0g")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_5xf75")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_yivl5")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_msbe3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_rud4w")
+}],
+"loop": true,
+"name": &"move_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_k7axf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_1gwgm")
+}],
+"loop": true,
+"name": &"move_up",
+"speed": 5.0
+}]
+
+[node name="player" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_n65b4")
+debug_color = Color(0.818772, 0.272478, 0.748366, 0.42)
+
+[node name="anim" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, 0)
+scale = Vector2(1.29688, 1.35156)
+sprite_frames = SubResource("SpriteFrames_dklry")
+animation = &"idle"
+autoplay = "idle"
